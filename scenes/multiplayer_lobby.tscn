@@ -1,0 +1,97 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr7joecocyg0x"]
+
+[ext_resource type="Script" path="res://scripts/ui/multiplayer_lobby.gd" id="1_ro7si"]
+[ext_resource type="Script" path="res://scripts/ui/start_lobby.gd" id="2_y8gme"]
+
+[node name="MultiplayerLobby" type="Node"]
+script = ExtResource("1_ro7si")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StartLobby" type="Control" parent="CanvasLayer" groups=["lobby"]]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_y8gme")
+
+[node name="Lobby" type="Control" parent="CanvasLayer/StartLobby"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/StartLobby/Lobby"]
+layout_mode = 2
+offset_left = 427.0
+offset_top = 206.0
+offset_right = 484.0
+offset_bottom = 232.0
+text = "Players"
+
+[node name="PlayersList" type="VBoxContainer" parent="CanvasLayer/StartLobby/Lobby"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 431.0
+offset_top = 247.0
+offset_right = 488.0
+offset_bottom = 287.0
+
+[node name="Start" type="Control" parent="CanvasLayer/StartLobby"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/StartLobby/Start"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 189.0
+offset_top = -58.0
+offset_right = 456.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameInputLabel" type="Label" parent="CanvasLayer/StartLobby/Start/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+
+[node name="NameInput" type="TextEdit" parent="CanvasLayer/StartLobby/Start/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+placeholder_text = "Nombre"
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/StartLobby/Start/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 115
+
+[node name="Create" type="Button" parent="CanvasLayer/StartLobby/Start/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Nueva sala"
+
+[node name="LobbiesList" type="VBoxContainer" parent="CanvasLayer/StartLobby/Start"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 145.0
+offset_top = 73.0
+offset_right = 185.0
+offset_bottom = 113.0
+
+[connection signal="pressed" from="CanvasLayer/StartLobby/Start/VBoxContainer/Buttons/Create" to="." method="_on_create_pressed"]
