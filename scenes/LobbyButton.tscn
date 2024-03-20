@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6vhmk6qv0plw"]
+
+[ext_resource type="Script" path="res://scripts/LobbyButton.gd" id="1_ri64k"]
+
+[node name="LobbyButton" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ri64k")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 0
+offset_right = 229.0
+offset_bottom = 49.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="LobbyName" type="Label" parent="PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Lobby name"
+
+[node name="JoinLobby" type="Button" parent="PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+text = "Join"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/JoinLobby" to="." method="_on_join_lobby_pressed"]

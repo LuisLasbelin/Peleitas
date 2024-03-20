@@ -127,5 +127,10 @@ func synchronize_lobbies_list():
 
 
 func create_lobby():
-	player_info["lobby"] = randi_range(1, 99999)
+	player_info["lobby"] = str(randi_range(1, 99999))
+	update_player.rpc(multiplayer.get_unique_id(), player_info)
+
+
+func join_lobby(lobby_id):
+	player_info["lobby"] = str(lobby_id)
 	update_player.rpc(multiplayer.get_unique_id(), player_info)

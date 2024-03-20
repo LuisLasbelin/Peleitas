@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dr7joecocyg0x"]
+[gd_scene load_steps=4 format=3 uid="uid://dr7joecocyg0x"]
 
 [ext_resource type="Script" path="res://scripts/ui/multiplayer_lobby.gd" id="1_ro7si"]
 [ext_resource type="Script" path="res://scripts/ui/start_lobby.gd" id="2_y8gme"]
+[ext_resource type="PackedScene" uid="uid://c6vhmk6qv0plw" path="res://scenes/LobbyButton.tscn" id="3_fa8rt"]
 
 [node name="MultiplayerLobby" type="Node"]
 script = ExtResource("1_ro7si")
@@ -17,10 +18,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_y8gme")
+lobby_button = ExtResource("3_fa8rt")
 
 [node name="Lobby" type="Control" parent="CanvasLayer/StartLobby"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,6 +47,7 @@ offset_bottom = 287.0
 
 [node name="Start" type="Control" parent="CanvasLayer/StartLobby"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
