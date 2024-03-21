@@ -1,7 +1,7 @@
 extends Control
 
 @export var lobby_button : PackedScene
-
+@export var waiting_room : PackedScene
 
 func _ready():
 	%Start.show()
@@ -9,9 +9,10 @@ func _ready():
 
 
 func change_to_lobby():
-	%Start.hide()
-	%Lobby.show()
-	synchronize_players_list()
+	get_tree().change_scene_to_packed(waiting_room)
+#	%Start.hide()
+#	%Lobby.show()
+#	synchronize_players_list()
 
 
 func change_to_start():

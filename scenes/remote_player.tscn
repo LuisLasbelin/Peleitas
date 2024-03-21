@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bswc1u428edne"]
+
+[ext_resource type="Texture2D" uid="uid://btas7ntq2ov2v" path="res://icon.svg" id="1_4rt30"]
+
+[node name="RemotePlayer" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.28125, 0.28125)
+texture = ExtResource("1_4rt30")

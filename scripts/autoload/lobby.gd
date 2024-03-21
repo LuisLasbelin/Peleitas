@@ -123,7 +123,8 @@ func _on_server_disconnected():
 
 
 func synchronize_lobbies_list():
-	get_tree().get_first_node_in_group("lobby").synchronize_lobbies_list()
+	if get_tree().get_first_node_in_group("lobby"):
+		get_tree().get_first_node_in_group("lobby").synchronize_lobbies_list()
 
 
 func create_lobby():
